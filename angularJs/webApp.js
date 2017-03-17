@@ -162,6 +162,17 @@ indexControllers.controller("journalCtrl",function($scope,$http){
 					}
 				}
 			});
+			angular.forEach($scope.pics,function(data,index,array){
+				if(id == data.id) {
+					if($(".comment").eq(index+fabulousLen).parent().next().hasClass("box")){
+						$(".comment").eq(index+fabulousLen).parent().next().remove();
+					}else{
+						$(".box").remove();
+						var box = '<p class="box"><input type="text" id="input" /><b id="btn">提交</b></p>'
+						$(".comment").eq(index+fabulousLen).parent().after(box);
+					}
+				}
+			});
 		};
 	});
 });
