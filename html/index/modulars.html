@@ -1,0 +1,101 @@
+<div class="whole" ng-controller="journalCtrl">
+	<!--版块1_@_journal-->
+	<dl class="modular" ng-repeat="journal in journals">
+		<dt class="head_img">
+			<img ng-src="{{journal.url}}">
+		</dt>
+		<dd class="main">
+			<p class="main_nickname" ng-bind="journal.nickname"></p>
+			<p class="main_tip" ng-bind="journal.tip"></p>
+			<div class="main_title">
+				<em class="main_title_img">
+					<img ng-src="{{journal.imgUrl}}">
+				</em>
+				<p class="main_title_text" ng-bind="journal.text"></p>
+			</div>
+			<div class="main_opinion">
+				<p class="fabulous" ng-click="fabulous(journal.id)">
+					<i></i>
+					<em ng-bind="journal.num"></em>
+				</p>
+				<p class="comment" ng-click="comment(journal.id)">
+					<i></i>
+					<em>评论</em>
+				</p>
+				<p class="del" ng-show="journal.comments.length > 3" ng-click="del(journal.id)">
+					<i></i>
+					<em>删除</em>
+				</p>
+			</div>
+			<p class="time_difference" ng-bind="journal.time"></p>
+			<ul class="comment_text" id="first">
+				<li ng-repeat="comment in journal.comments">
+					<a href="javascript:void(0)" ng-bind="comment.name"></a>
+					<em>:</em>
+					<span ng-bind="comment.content"></span>
+				</li>
+			</ul>
+			<div class="more" ng-click="more(journal.id)" ng-show="journal.comments.length > 2">
+				<span>
+					查看更多
+					<em></em>
+					评论
+				</span>
+				<i></i>
+			</div>
+			<div class="less" ng-click="less(journal.id)" ng-show="journal.comments.length > 2">
+				<span>收起</span>
+				<i></i>
+			</div>
+		</dd>
+	</dl>
+	<!--版块2_@_picture-->
+	<dl class="modular" ng-repeat="pic in pics">
+		<dt class="head_img">
+			<img ng-src="{{pic.url}}">
+		</dt>
+		<dd class="main">
+			<p class="main_nickname" ng-bind="pic.nickname"></p>
+			<p class="main_tip" ng-bind="pic.tip"></p>
+			<div class="img_show">
+				<em ng-repeat="img in pic.imgs">
+					<img ng-src="{{img.imgUrl}}" ng-click="former(img.id)" />
+				</em>
+			</div>	
+			<div class="main_opinion">
+				<p class="fabulous" ng-click="fabulous(pic.id)">
+					<i></i>
+					<em ng-bind="pic.num"></em>
+				</p>
+				<p class="comment" ng-click="comment(pic.id)">
+					<i></i>
+					<em>评论</em>
+				</p>
+				<p class="del" ng-show="pic.comments.length > 3" ng-click="del(pic.id)">
+					<i></i>
+					<em>删除</em>
+				</p>
+			</div>
+			<p class="main_time" ng-bind="pic.time"></p>
+			<ul class="comment_text" id="third">
+				<li ng-repeat="comment in pic.comments">
+					<a href="javascript:void(0)" ng-bind="comment.name"></a>
+					<em>:</em>
+					<span ng-bind="comment.content"></span>
+				</li>
+			</ul>
+			<div class="more" ng-click="more(pic.id)" ng-show="pic.comments.length > 2">
+				<span>
+					查看更多
+					<em></em>
+					评论
+				</span>
+				<i></i>
+			</div>
+			<div class="less" ng-click="less(pic.id)" ng-show="pic.comments.length > 2">
+				<span>收起</span>
+				<i></i>
+			</div>
+		</dd>
+	</dl>
+</div>

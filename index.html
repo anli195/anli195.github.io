@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+	    <!-- 标题图标 icon -->
+	    <link rel="icon" href="img/icon.ico" type="image/x-icon">	
+	    <!-- 全局样式 main -->
+	    <link rel="stylesheet" href="css/main.css" type="text/css" />
+	    <!-- 提示框样式 promt -->
+	    <link rel="stylesheet" href="css/prompt .css" type="text/css" />
+	    <!-- 首页样式 index -->
+	    <link rel="stylesheet" href="css/index.css" type="text/css" />
+		<title>车友圈</title>
+	</head>
+
+	<body ng-app="appModule">
+		<div ng-view></div>
+
+		<script type="text/javascript" src="js/responsive.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="angularJs/angular.min.js" ></script>
+		<script type="text/javascript" src="angularJs/angular-route.min.js" ></script>
+		<script type="text/javascript" src="angularJs/angular-resource.min.js" ></script>
+		<script type="text/javascript" src="angularJs/angular-animate.min.js" ></script>
+		<script type="text/javascript" src="js/index.js"></script>
+		<script type="text/javascript" src="angularJs/webApp.js" ></script>
+		<script type="text/javascript" src="js/prompt .js" ></script>
+		<script type="text/javascript" src="angularJs/dom.js" ></script>
+		<script type="text/javascript">
+			function show(obj,arr,index){
+				popTipShow.confirm('弹窗标题','您确定要删除该条朋友圈',['确 定','取 消'],
+					function(e){
+					  //callback 处理按钮事件
+					  var button = $(e.target).attr('class');
+					  if(button == 'ok'){
+						//按下确定按钮执行的操作
+						//todo ....				
+						this.hide();
+						setTimeout(function() {
+							webToast("操作成功","top", 2000);
+						}, 300);
+						obj.remove();
+						return arr.slice(index-1,1);
+					  }
+		
+					  if(button == 'cancel') {
+						//按下取消按钮执行的操作
+						//todo ....
+						this.hide();
+						setTimeout(function() {
+							webToast("您选择“取消”了","bottom", 2000);
+						}, 300);
+					  }
+					}
+				);
+		   };
+		</script>
+	</body>
+</html>
