@@ -92,6 +92,7 @@ indexControllers.controller("journalCtrl",function($scope,$http){
 				};
 			});
 		};
+		//收起less
 		$scope.less = function(id){
 			angular.forEach($scope.journals,function(data,index,array){
 				if(id == data.id) {
@@ -108,6 +109,7 @@ indexControllers.controller("journalCtrl",function($scope,$http){
 				};
 			});	
 		};
+		//查看更多more
 		$scope.more = function(id){
 			angular.forEach($scope.journals,function(data,index,array){
 				if(id == data.id) {
@@ -124,6 +126,7 @@ indexControllers.controller("journalCtrl",function($scope,$http){
 				}
 			});	
 		};
+		//预览former
 		$scope.former = function(id){
 			angular.forEach($scope.pics,function(data,index,array){
 				angular.forEach(data.imgs,function(data1,index1,array1){
@@ -133,6 +136,7 @@ indexControllers.controller("journalCtrl",function($scope,$http){
 				});
 			});
 		};
+		//删除del
 		$scope.del = function (id){
 			angular.forEach($scope.journals,function(data,index,array){
 				if(id == data.id) {
@@ -145,6 +149,7 @@ indexControllers.controller("journalCtrl",function($scope,$http){
 				}
 			});
 		};
+		//删除comment
 		$scope.comment = function(id){
 			angular.forEach($scope.journals,function(data,index,array){
 				if(id == data.id) {
